@@ -5,11 +5,27 @@ const expresEjsLayout = require("express-ejs-layouts");
 
 const app = express();
 
-// middlewares 
-app.use(expresEjsLayout);
-app.set(express.static('public'))
-app.set('layout', 'layouts/main')
+// static files 
 
+app.use(express.static('public'));
+
+// middleware 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+// Templating engine
+app.use(expresEjsLayout);
+app.set('layout', 'layouts/main')
+app.set('view engine', 'ejs')
+
+
+// Routes 
+app.get('/', (req, res) => {
+    res.render('index')
+})
+
+
+// server 
 const PORT = process.env.PORT || 8000
 app.listen(PORT, ()=> {
     console.log(`Server is running on the port ${PORT}`)
