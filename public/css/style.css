@@ -1,3 +1,18 @@
 body {
-    background: red;
+    font-family: "Unbounded", sans-serif;;
+}
+
+.home {
+    background: linear-gradient(180deg, rgb(235, 235, 220), rgb(222, 245, 222) 60%)
+}
+
+.heading-one {
+    margin-top: 20px;
+    font-size: 70px;
+    text-align: center;
+}
+
+
+.text-home {
+    font-size: 12px;
 }

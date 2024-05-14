@@ -1,8 +1,6 @@
 require('dotenv').config();
 const express = require("express");
 const expresEjsLayout = require("express-ejs-layouts");
-
-
 const app = express();
 
 // static files 
@@ -18,12 +16,8 @@ app.use(expresEjsLayout);
 app.set('layout', 'layouts/main')
 app.set('view engine', 'ejs')
 
-
-// Routes 
-app.get('/', (req, res) => {
-    res.render('index')
-})
-
+// routes
+app.use('/', require('./server/routes/index'))
 
 // server 
 const PORT = process.env.PORT || 8000
